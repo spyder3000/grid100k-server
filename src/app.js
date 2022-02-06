@@ -7,9 +7,12 @@ require('./db/mongoose')  // will connect to mongoose
 const personRouter = require('./routers/person'); 
 
 const app = express()
-if (process.env.NODE_ENV !== 'production') {
-   app.use(cors());     // cors used to allow access from client 
-}
+// if (process.env.NODE_ENV !== 'production') {
+   app.use(cors({
+      // origin: "http://127.0.0.1:5501",
+      origin: "*",
+   }));     // cors used to allow access from client 
+// }
 
 const publicPath = path.join(__dirname, '../client/public'); 
 
